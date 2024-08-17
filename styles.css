@@ -62,13 +62,14 @@ nav ul li a {
     font-weight: 600;
     font-size: 20px;
     position: relative;
-    transition: color 0.3s ease, transform 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
     padding: 10px 0;
 }
 
 nav ul li a:hover {
     color: #00aaff;
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
 }
 
 nav ul li a::before {
@@ -138,9 +139,9 @@ nav ul li a:hover::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 70%);
     filter: blur(120px);
-    animation: moveBackground 12s linear infinite;
+    animation: moveBackground 15s linear infinite;
     z-index: 1;
 }
 
@@ -169,7 +170,7 @@ nav ul li a:hover::before {
     position: absolute;
     width: 80px;
     height: 80px;
-    opacity: 0.8;
+    opacity: 0.3;
     fill: #00aaff;
     animation: float 8s ease-in-out infinite;
 }
@@ -217,7 +218,7 @@ nav ul li a:hover::before {
     }
 }
 
-/* Section Styling */
+/* Hiệu ứng sáng lên khi di chuột vào các phần */
 .section {
     padding: 80px 20px;
     text-align: center;
@@ -229,13 +230,15 @@ nav ul li a:hover::before {
     max-width: 1200px;
     position: relative;
     z-index: 2;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section:hover {
     transform: scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
 }
 
+/* Hiệu ứng sáng lên trên tiêu đề section */
 .section h2 {
     font-size: 40px;
     margin-bottom: 20px;
@@ -244,6 +247,10 @@ nav ul li a:hover::before {
     display: inline-block;
     padding-bottom: 10px;
     transition: color 0.3s ease;
+}
+
+.section:hover h2 {
+    color: #0077cc;
 }
 
 .section h2:hover {
@@ -270,17 +277,17 @@ nav ul li a:hover::before {
 
 .portfolio-item {
     background: #1e1e1e;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 20px;
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     overflow: hidden;
     position: relative;
 }
 
 .portfolio-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.3);
+    transform: scale(1.05);
+    box-shadow: 0 24px 36px rgba(0, 0, 0, 0.4);
 }
 
 .portfolio-item img {
@@ -423,12 +430,14 @@ form button {
     font-weight: 600;
     cursor: pointer;
     border: none;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 form button:hover {
     background: #0077cc;
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
 }
 
 /* Footer */
@@ -443,3 +452,107 @@ footer {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Parallax Effect */
+.parallax {
+    background-image: url('https://via.placeholder.com/1600x800');
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    position: relative;
+}
+
+/* Social Links Container */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-link {
+    color: #e0e0e0;
+    font-size: 24px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-link:hover {
+    color: #00aaff;
+    transform: scale(1.1);
+}
+
+/* Icon styles for different platforms */
+.instagram {
+    color: #e4405f;
+}
+
+.facebook {
+    color: #1877f2;
+}
+
+.behance {
+    color: #1769ff;
+}
+
+.cv {
+    color: #ff0000;
+}
+
+/* Container cho sao băng */
+.shooting-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+/* Sao băng */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(255, 255, 255, 0) 100%);
+    opacity: 0;
+    transform: rotate(15deg);
+}
+
+/* Tạo hiệu ứng sao băng */
+@keyframes shoot {
+    0% {
+        opacity: 1;
+        transform: translateY(-100px) rotate(15deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(15deg);
+    }
+}
+
+/* Cài đặt hiệu ứng cho nhiều sao băng với độ trễ và khác biệt */
+.star:nth-child(1) {
+    top: 10%;
+    left: 20%;
+    animation: shoot 1s linear infinite;
+    animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+    top: 30%;
+    left: 50%;
+    animation: shoot 1s linear infinite;
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(3) {
+    top: 50%;
+    left: 70%;
+    animation: shoot 1s linear infinite;
+    animation-delay: 1s;
+}
+
+/* Thêm nhiều sao băng khác bằng cách sao chép đoạn mã và thay đổi vị trí và độ trễ */
