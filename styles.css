@@ -555,4 +555,20 @@ footer {
     animation-delay: 1s;
 }
 
-/* Thêm nhiều sao băng khác bằng cách sao chép đoạn mã và thay đổi vị trí và độ trễ */
+/* Thêm CSS cho thông báo */
+.alert {
+    display: none;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.alert.success {
+    background-color: #4CAF50; /* Màu xanh lá cây cho thông báo thành công */
+}
+
+.alert.error {
+    background-color: #f44336; /* Màu đỏ cho thông báo lỗi */
+}
